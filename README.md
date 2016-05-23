@@ -1,0 +1,1 @@
+Script to automate the creation of MBaaS on openshift and provision of MBaaS targets and environments on RH MAP
