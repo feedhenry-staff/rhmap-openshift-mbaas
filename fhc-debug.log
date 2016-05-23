@@ -1,0 +1,12 @@
+info No http/https given, assuming https://
+ERR! { [Error: getaddrinfo ENOTFOUND undefined undefined:443]
+ERR!   code: 'ENOTFOUND',
+ERR!   errno: 'ENOTFOUND',
+ERR!   syscall: 'getaddrinfo',
+ERR!   hostname: 'undefined',
+ERR!   host: 'undefined',
+ERR!   port: 443 }
+ERR! 
+ERR! System Darwin 15.3.0
+ERR! command "/usr/local/bin/node" "/usr/local/bin/fhc" "target" "undefined"
+verbose exit [ 1, false ]
