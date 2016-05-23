@@ -1,14 +1,21 @@
 'use strict';
+var openshiftCallsProxy = {openshiftLogin: function(){
+	return function(cb){
+		console.log('Calling proxy');
+		cb(null, true);
+	}
+}};
+var fhCallsProxy = {};
+var proxyquire = require('proxyquire');
+var sequence = proxyquire('../lib/sequence.js', {'./openshiftcalls.js': openshiftCallsProxy,'./fhCalls.js': fhCallsProxy});
 
-proxyquire('../lib/sequence.js', {openshiftCalls: openshiftCallsProxy, fhCalls: fhCallsProxy});
 
-
-describe('addition', function () {
+describe('sequence', function () {
   it('should add perform sequence of steps correctly', function (done) {
-    // var onePlusOne = 1 + 1;
-    // onePlusOne.should.equal(2);
-    // must call done() so that mocha know that we are... done.
-    // Useful for async tests.
-    done();
+    sequence.process(function(err, res){
+    	res.should.equal(true);
+    	done();
+    });
+
   });
 });
